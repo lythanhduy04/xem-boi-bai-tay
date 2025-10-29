@@ -1,19 +1,26 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
+
 import Welcome from "./Welcome";
 import Tarot from "./Tarot";
-import "./App.css";
 import TarotResult from "./TarotResult";
+
+import "./App.css";
 
 function App() {
   const [isWelcome, setIsWelcome] = useState(true);
   const [isViewResult, setIsViewResult] = useState(false);
 
-  const clickKhamPha = () => setIsWelcome(false);
-  const clickPhanTich = () => setIsViewResult(true);
+  const clickKhamPha = () => {
+    setIsWelcome(false);
+  };
+
+  const clickPhanTich = () => {
+    setIsViewResult(true);
+  };
 
   return (
-    <div className="App w-full">
+    <HashRouter>
       <Routes>
         <Route
           path="/"
@@ -28,7 +35,7 @@ function App() {
           }
         />
       </Routes>
-    </div>
+    </HashRouter>
   );
 }
 
